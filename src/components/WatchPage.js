@@ -1,14 +1,16 @@
 import { useSearchParams } from "react-router-dom";
 import useCollapseSidebar from "../hooks/useCollapseSidebar";
 import CommentsContainer from "./CommentsContainer";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
 
   useCollapseSidebar();
   return (
-    <div className="flex flex-col">
-    <div className="px-5 ">
+    <div className="flex flex-col w-full">
+    <div className="px-5 flex">
+      <div>
       <iframe
         width="1200"
         height="600"
@@ -19,6 +21,10 @@ const WatchPage = () => {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
+      </div>
+      <div className="w-full">
+        <LiveChat />
+      </div>
     </div>
     <CommentsContainer />
     </div>
